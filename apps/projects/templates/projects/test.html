@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="" method="post">{% csrf_token %}
+<form class="form-horizontal">
+<fieldset>
+
+<h2>Upload your project.</h2>
+<!-- Form Name -->
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="name">Project Title</label>
+  <div class="controls">
+    <input id="name" name="name" type="text" placeholder="Give the title for the project." class="input-xxlarge" required="">
+  </div>
+</div>
+
+<br>
+
+
+{# Project description from the user.#}
+<div class="control-group">
+  <label class="control-label" for="description">Description</label>
+  <div class="controls">
+    <textarea id="description" name="description" placeholder="Describe your project."></textarea>
+    {{ form.description.errors }}
+  </div>
+</div>
+
+<br>
+
+{# Project creator name.#}
+<div class="control-group">
+  <label class="control-label" for="user">User name</label>
+  <div class="controls">
+    <textarea id="description" name="user" placeholder="User name."></textarea>
+    {{ form.description.errors }}
+  </div>
+</div>
+
+<br>
+
+{# Project description from the user.#}
+<div class="control-group">
+  <label class="control-label" for="contact">Contact</label>
+  <div class="controls">
+    <textarea id="description" name="contact" placeholder="Contact Information."></textarea>
+    {{ form.description.errors }}
+  </div>
+</div>
+
+<br>
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="singlebutton"></label>
+  <div class="controls">
+    <button id="singlebutton" name="singlebutton" input type="submit" class="btn btn-primary">Create</button>
+  </div>
+</div>
+
+
+
+</fieldset>
+</form>
+
+    </form>
+
+    <script>$('.datepicker').datepicker()</script>
+
+{{ form.errors }}
+{% endblock %}
+

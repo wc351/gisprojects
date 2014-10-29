@@ -38,6 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.projects',
+    'bootstrap',
+    'vendor.registration',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,13 +60,31 @@ WSGI_APPLICATION = 'gisprojects.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
+ABSOLUTE_URL_OVERRIDES = {'auth.user': lambda url: '/'}
+LOGIN_REDIRECT_URL = '/'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'gisprojects',
+        'USER': 'postgres',
+        'PASSWORD': 'geografio',
+        'HOST': 'localhost',
+        'PORT': 5432,
     }
 }
+
+DEFAULT_FILE_STORAGE = 'gisprojects.s3utils.MediaRootS3BotoStorage'
+STATICFILES_STORAGE = 'gisprojects.s3utils.MediaRootS3BotoStorage'
+AWS_ACCESS_KEY_ID = 'AKIAIMO2QEEKUP23MHIA'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'gisprojects'
+MEDIA_ROOT = 'media/'
+STATIC_ROOT = 'static/'
+S3_URL = 'http://{}.s3.amazonaws.com/'.format(AWS_STORAGE_BUCKET_NAME)
+MEDIA_URL = S3_URL + MEDIA_ROOT
+STATIC_URL = S3_URL + STATIC_ROOT
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
@@ -81,9 +102,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
-
-STATIC_URL = '/static/'
-
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
+)
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "bstatic"),
 )

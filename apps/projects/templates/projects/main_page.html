@@ -1,0 +1,22 @@
+{%  extends 'base.html' %}
+<html>
+{#{%  include "templates/projects/navbar.html" %}#}
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>GIS Projects</title>
+</head>
+<body>
+{% block nav %}
+        <ul id="nav">
+            <li>{% block nav-home %}<a href="/">Home</a>{% endblock %}</li>
+            <li>{% block nav-about %}<a href="/search_page/">About</a>{% endblock %}</li>
+            <li>{% block nav-contact %}<a href="/display_page/">Contact</a>{% endblock %}</li>
+        </ul>
+{% endblock %}
+{% block content %}
+{% include "projects/carousel.html" %}
+{% endblock %}
+<p>This is the main page for the GIS Projects.</p>
+</body>
+</html>

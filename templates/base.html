@@ -1,0 +1,25 @@
+{% load staticfiles %}
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{% block title %}GIS Projects{% endblock %}</title>
+    <link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
+    <link href="{% static "base.css" %}" rel="stylesheet">
+
+<style></style>
+</head>
+<body>
+<h1>GIS Projects</h1>
+{% include "projects/navbar.html" %}
+{% block scriptspace %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+{% endblock %}
+
+
+{% block content %} {% endblock %}
+</body>
+<div id="footer"><footer><a href="http://www.wc351.com">2013 wc351</footer></div>
+</html>
+

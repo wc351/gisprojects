@@ -1,0 +1,38 @@
+
+body {background-color: black
+}
+h1 {color: gold;
+}
+h2 {color: gold
+}
+p {
+    color: gold;
+}
+a {
+    color: gold;
+    text-align: center;
+}
+footer {
+position:fixed;
+bottom: 0px;
+width: 100%;
+text-align: center;
+}
+
+.content {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+}
+
+fieldset {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+}
+
+.control-group {
+    width: 100%;
+    text-align: center;
+
+}
